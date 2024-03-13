@@ -18,7 +18,7 @@ body {
     flex-wrap: wrap;
 }
 
-.start-button {
+#start-button {
     background-color: indianred;
     color: white;
     padding: 15px;
@@ -34,6 +34,10 @@ body {
 div[class^="cell"] {
     aspect-ratio: 1 / 1;
     border: 2px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cell-10 {

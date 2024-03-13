@@ -28,7 +28,7 @@ body {
 }
 
 .grid-wrapper {
-    padding: 80px;
+    padding: 10px 80px;
 }
 
 div[class^="cell"] {

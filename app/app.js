@@ -7,6 +7,7 @@ console.log('Campominato.');
 
 // Collegare con il bottone start
 const startGame = document.getElementById('start-button');
+// Collegare il livello di difficoltà
 
 // Ascoltare azione di click su bottone start
 startGame.addEventListener('click', function () {
@@ -14,16 +15,35 @@ startGame.addEventListener('click', function () {
 
     const gridElement = document.querySelector('.grid');
 
-    const rowSize = 10;
+    let rowSize = 0;
+    let inputDifficultyElement = document.getElementById('difficulty').value;
+
+    if (inputDifficultyElement === "hard") {
+        rowSize = 10;
+    } else if (inputDifficultyElement === "mid") {
+        rowSize = 9;
+    } else if (inputDifficultyElement === "easy") {
+        rowSize = 7;
+    }
+
+    console.log('Difficoltà selezionata:', inputDifficultyElement);
+
     const numberOfCells = rowSize ** 2;
 
-
-    // Generare 100 celle all'interno della griglia
+    // Generare tante celle all'interno della griglia quante ne richiede il livello di difficoltà selezionato
     for (let i = 0; i < numberOfCells; i++) {
         const num = 1+ i;
 
         const cellElement = document.createElement('div');
-        cellElement.className = 'cell-10';
+
+        if (inputDifficultyElement === "hard") {
+            cellElement.classList.add ('cell-10');
+        } else if (inputDifficultyElement === "mid") {
+            cellElement.className = "cell-9";
+        } else if (inputDifficultyElement === "easy") {
+            cellElement.className = "cell-7";
+        }
+        
         cellElement.innerHTML = num;
 
         gridElement.append(cellElement);
@@ -38,4 +58,3 @@ startGame.addEventListener('click', function () {
     }
 
 });
-
